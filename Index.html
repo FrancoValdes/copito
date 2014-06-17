@@ -1,0 +1,112 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>Aplic. Web de jQuery Mobile</title>
+<link href="TestJS/jquery.mobile-1.0.min.css" rel="stylesheet" type="text/css"/>
+<script src="TestJS/jquery-1.6.4.min.js" type="text/javascript"></script>
+<script src="TestJS/jquery.mobile-1.0.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+        $("#btnIngreso").click(function(event){
+			$.post("ValidarUsuario.php",{
+				user:  document.getElementById("user").value,	
+				contrasena :  document.getElementById("contrasena").value	
+			}, function (data, status) {
+			    if (data == "Usuario invalido") {
+			     
+					alert(data);
+				} else {
+					alert(data);
+				    window.location.href = 'Test.html#Validacion';
+					
+					}
+						
+			});
+
+		});		
+
+	});
+	
+    </script>
+    <script type="text/javascript">
+	$(document).ready(function() {
+        $("#btnValidar").click(function(event){
+			$.post("Validar.php",{
+				
+				codigo :  document.getElementById("txtCodigo").value	
+			}, function (data, status) {
+			    
+			     
+					alert(data);
+				
+						
+			});
+
+		});		
+
+	});
+	
+	
+    </script>
+    
+</head> 
+<body> 
+
+<div data-role="page" id="page">
+	<div data-role="header">
+		<h1>Copito Movil</h1>
+	</div>
+	<div data-role="content">	
+		<ul data-role="listview">
+			<li><a href="#Ingreso">Cuenta</a></li>
+            
+		</ul>		
+	</div>
+	<div data-role="footer">
+		<h4>Guau Guau</h4>
+	</div>
+</div>
+
+<div data-role="page" id="Ingreso">
+	<div data-role="header">
+		<h1>Ingreso</h1>
+	</div>
+	<div data-role="content">	
+		<input type="text" placeholder="Usuario" id="user" name="user" >
+	<input type="password" placeholder="Contraseña" id="contrasena" name="contrasena" >
+	
+	<button type="button"  class="btn btn-primary" data-toggle="button" id="btnIngreso">Ingreso</button>		
+	</div>
+	<div data-role="footer">
+		<h4></h4>
+	</div>
+</div>
+
+
+<div data-role="page" id="Validacion">
+	<div data-role="header">
+		<h1>Validacion</h1>
+	</div>
+	<div data-role="content">	
+		<input type="text" placeholder="Codigo" id="txtCodigo" name="txtcodigo" >
+	
+	<button type="button"  class="btn btn-primary" data-toggle="button" id="btnValidar">Validar</button>		
+	</div>
+	<div data-role="footer">
+		<h4></h4>
+	</div>
+</div>
+
+
+
+
+
+</div>
+
+</body>
+</html>
